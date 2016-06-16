@@ -1,0 +1,14 @@
+net: "examples/kth-tips-2b/train_val_tcnn3.prototxt"
+test_iter: 99 # 99x36 = 3564 (number of testing images)
+test_interval: 1000
+base_lr: 0.0001
+lr_policy: "step"
+gamma: 0.1
+stepsize: 800
+display: 100
+max_iter: 1000
+momentum: 0.9
+weight_decay: 0.0005
+snapshot: 10000
+snapshot_prefix: "examples/kth-tips-2b/caffemodels/tcnn3"
+#solver_mode: CPU
