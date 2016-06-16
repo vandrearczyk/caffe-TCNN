@@ -10,5 +10,5 @@ max_iter: 1000
 momentum: 0.9
 weight_decay: 0.0005
 snapshot: 10000
-snapshot_prefix: "examples/kth-tips-2b/caffemodels/tcnn3"
+snapshot_prefix: "models/tcnn/tcnn3_finetune"
 #solver_mode: CPU
