@@ -2,12 +2,10 @@
 
 # Caffe-TCNN. Using filter banks in convolutional neural networks for texture classification
 This is a basic example of the Texture CNN (T-CNN) network developed in "andrearczyk2016". 
-We provide an example of the T-CNN-3 (3 convolution layers) fine-tuned or from scratch on the kth-tips-2b database.
+We provide an implementation of the T-CNN-3 (3 convolution layers) fine-tuned or from scratch on the kth-tips-2b database.
 
 ## Getting started
-Install caffe and go to the caffe directory:
-
-    cd caffe-TCNN-master
+Install caffe and go to the caffe directory.
     
 Download and import the T-CNN-3 model pretrained on ImageNet.
 
@@ -21,7 +19,7 @@ and place it in the created folder (./models/tcnn).
 Prepare the data (download the kth-tips-2b database, untar and convert to jpg images):
 
     cd ./data/kth-tips-2b
-    . prepare_data.sh
+    . ./prepare_data.sh
     
 Create the lmdbs and mean files:
 
