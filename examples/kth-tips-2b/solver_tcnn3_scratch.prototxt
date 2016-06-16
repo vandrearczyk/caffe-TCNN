@@ -10,5 +10,5 @@ max_iter: 7000
 momentum: 0.9
 weight_decay: 0.004
 snapshot: 10000
-snapshot_prefix: "examples/kth-tips-2b/caffemodels/tcnn3_scratch"
+snapshot_prefix: "models/tcnn/tcnn3_scratch"
 #solver_mode: CPU
