@@ -5,11 +5,9 @@ This is a basic example of the Texture CNN (T-CNN) network developed in "andrear
 We provide an implementation of the T-CNN-3 (3 convolution layers) fine-tuned or from scratch on the kth-tips-2b database.
 
 ## Getting started
-Install caffe and go to the caffe directory.
+Install caffe and go to the caffe directory. (Alternatively, you can copy these folders to your already existing caffe folder: ./data/kth-tips-2b/ ./examples/kth-tips/2b and do the same following tasks).
     
-Download and import the T-CNN-3 model pretrained on ImageNet.
-
-Create a folder:
+Create a folder into which you will import the T-CNN-3 model pretrained on ImageNet:
 
     mkdir ./models/tcnn
     
