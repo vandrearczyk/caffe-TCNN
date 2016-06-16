@@ -1,37 +1,59 @@
-# Caffe
 
-[![Build Status](https://travis-ci.org/BVLC/caffe.svg?branch=master)](https://travis-ci.org/BVLC/caffe)
-[![License](https://img.shields.io/badge/license-BSD-blue.svg)](LICENSE)
 
-Caffe is a deep learning framework made with expression, speed, and modularity in mind.
-It is developed by the Berkeley Vision and Learning Center ([BVLC](http://bvlc.eecs.berkeley.edu)) and community contributors.
+# Caffe-TCNN. Using filter banks in convolutional neural networks for texture classification
+This is a basic example of the Texture CNN (T-CNN) network developed in "andrearczyk2016". 
+We provide an example of the T-CNN-3 (3 convolution layers) fine-tuned or from scratch on the kth-tips-2b database.
 
-Check out the [project site](http://caffe.berkeleyvision.org) for all the details like
+## Getting started
+Install caffe and go to the caffe directory:
 
-- [DIY Deep Learning for Vision with Caffe](https://docs.google.com/presentation/d/1UeKXVgRvvxg9OUdh_UiC5G71UMscNPlvArsWER41PsU/edit#slide=id.p)
-- [Tutorial Documentation](http://caffe.berkeleyvision.org/tutorial/)
-- [BVLC reference models](http://caffe.berkeleyvision.org/model_zoo.html) and the [community model zoo](https://github.com/BVLC/caffe/wiki/Model-Zoo)
-- [Installation instructions](http://caffe.berkeleyvision.org/installation.html)
+    cd caffe-TCNN
+    
+Download and import the T-CNN-3 model pretrained on ImageNet.
 
-and step-by-step examples.
+Create a folder:
 
-[![Join the chat at https://gitter.im/BVLC/caffe](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/BVLC/caffe?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+    mkdir ./models/tcnn
+    
+Download and untar the caffemodel from this link: [tcnn3.caffemodel](https://drive.google.com/open?id=0B2KB9JO6F3xCWHhqOUl3bDI1Yzg)
+and place it in the created folder (./models/tcnn).
 
-Please join the [caffe-users group](https://groups.google.com/forum/#!forum/caffe-users) or [gitter chat](https://gitter.im/BVLC/caffe) to ask questions and talk about methods and models.
-Framework development discussions and thorough bug reports are collected on [Issues](https://github.com/BVLC/caffe/issues).
+Prepare the data (download the kth-tips-2b database, untar and convert to jpg images):
 
-Happy brewing!
+    cd ./data/kth-tips-2b
+    . prepare_data.sh
+    
+Create the lmdbs and mean files:
 
-## License and Citation
+    cd ../../
+    . ./examples/kth-tips-2b/create_kth.sh
+    . ./examples/kth-tips-2b/make_kth_mean.sh
+    
+Now 4 sets of lmdbs (in caffe-TCNN/examples/kth-tips-2b) and means (in caffe-TCNN/data/kth-tips-2b) should be created. The first fold (kth_test1_lmdb, kth_train1_lmdb and kth_mean1.binaryproto) is linked to be trained on and tested.
+It’s now ready to train.
 
-Caffe is released under the [BSD 2-Clause license](https://github.com/BVLC/caffe/blob/master/LICENSE).
-The BVLC reference models are released for unrestricted use.
+You can fine-tune from T-CNN-3 pre-trained on ImageNet:
 
-Please cite Caffe in your publications if it helps your research:
+    ./build/tools/caffe train -solver ./examples/kth-tips-2b/solver_tcnn3.prototxt -weights ./models/tcnn/tcnn3.caffemodel -gpu 0
+    
+or
 
-    @article{jia2014caffe,
-      Author = {Jia, Yangqing and Shelhamer, Evan and Donahue, Jeff and Karayev, Sergey and Long, Jonathan and Girshick, Ross and Guadarrama, Sergio and Darrell, Trevor},
-      Journal = {arXiv preprint arXiv:1408.5093},
-      Title = {Caffe: Convolutional Architecture for Fast Feature Embedding},
-      Year = {2014}
+Train from scratch:
+
+    ./build/tools/caffe train -solver ./examples/kth-tips-2b/solver_tcnn3_scratch.prototxt -gpu 0
+
+To test another fold, link another set of lmdbs and mean and run the same training.
+
+## Citation
+
+If you use the provided code in your research, please cite
+
+
+    @article{andrearczyk2016using,
+      title={Using Filter Banks in Convolutional Neural Networks for Texture Classification},
+      author={Andrearczyk, Vincent and Whelan, Paul F},
+      journal={arXiv preprint arXiv:1601.02919},
+      year={2016}
     }
+
+
