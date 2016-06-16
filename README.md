@@ -32,6 +32,8 @@ Create the lmdbs and mean files:
 Now 4 sets of lmdbs (in caffe-TCNN/examples/kth-tips-2b) and means (in caffe-TCNN/data/kth-tips-2b) should be created. The first fold (kth_test1_lmdb, kth_train1_lmdb and kth_mean1.binaryproto) is linked to be trained on and tested.
 It’s now ready to train.
 
+## Evaluation
+
 You can fine-tune from T-CNN-3 pre-trained on ImageNet:
 
     ./build/tools/caffe train -solver ./examples/kth-tips-2b/solver_tcnn3.prototxt -weights ./models/tcnn/tcnn3.caffemodel -gpu 0
