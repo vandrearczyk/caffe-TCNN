@@ -7,7 +7,7 @@ We provide an example of the T-CNN-3 (3 convolution layers) fine-tuned or from s
 ## Getting started
 Install caffe and go to the caffe directory:
 
-    cd caffe-TCNN
+    cd caffe-TCNN-master
     
 Download and import the T-CNN-3 model pretrained on ImageNet.
 
