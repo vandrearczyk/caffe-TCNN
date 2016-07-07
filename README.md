@@ -11,7 +11,7 @@ Create a folder into which you will import the T-CNN-3 model pretrained on Image
 
     mkdir ./models/tcnn
     
-Download and untar the caffemodel from this link: [tcnn3.caffemodel](https://drive.google.com/open?id=0B2KB9JO6F3xCWHhqOUl3bDI1Yzg)
+Download and untar the caffemodel from this link: [tcnn3.caffemodel](https://drive.google.com/open?id=0B2KB9JO6F3xCNGtoeS1lNHZCUnM)
 and place it in the created folder (./models/tcnn).
 
 Prepare the data (download the kth-tips-2b database, untar and convert to jpg images):
