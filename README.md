@@ -1,7 +1,7 @@
 
 
 # Caffe-TCNN. Using filter banks in convolutional neural networks for texture classification
-This is a basic example of the Texture CNN (T-CNN) network developed in "andrearczyk2016". 
+This is a basic example of the Texture CNN (T-CNN) network developed in "andrearczyk2016using". 
 We provide an implementation of the T-CNN-3 (3 convolution layers) fine-tuned or from scratch on the kth-tips-2b database.
 
 ## Getting started
